@@ -1,21 +1,24 @@
 import requests
 
 MY_URL = ""
-PARAM = ""
+PARAM = {}
 
 
-def download_all_sites_post(codes, num):
+def download_all_sites_post(codes):
     for c in codes:
-        resp = requests.post(MY_URL,c)
+        global PARAM
+        PARAM['username'] = c
+        resp = requests.post(MY_URL,PARAM)
         print("status ", resp.status_code, " --- ", len(resp.content), " bytes --- using string: ", c, "\n")
 
 
-def make_post_requests(param, given_url, codes):
+def make_post_requests(param, url, codes):
     
     global PARAM
-    PARAM = param
+    PARAM = {"username":"", "password":"password", "action":"login"}
 
     global MY_URL
-    MY_URL = given_url
+    MY_URL = url
 
     download_all_sites_post(codes)
+    
