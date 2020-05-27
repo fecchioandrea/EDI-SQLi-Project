@@ -10,8 +10,7 @@ def main():
     """
     args = parse_args(sys.argv[1:])
 
-    url = args.url
-    make_post_requests(args.param, url, codes)
+    make_post_requests(args.param, args.url, args.codes)
 
 
 if __name__ == '__main__':
