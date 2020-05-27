@@ -15,7 +15,7 @@ function _dbgWrite($msg) {
         function connectDB(){
             $serverName = "localhost";
             //$connectionInfo = array( "Database"=>"EDI", "UID"=>"sa", "PWD"=>"eD1project");
-            $connectionInfo = array( "Database"=>"EDI", "UID"=>"root", "PWD"=>"");
+            $connectionInfo = array( "Database"=>"edi", "UID"=>"root", "PWD"=>"eD1project");
             $conn = mysqli_connect($serverName, $connectionInfo['UID'], $connectionInfo['PWD'],  $connectionInfo['Database']);
             return $conn;
         }
