@@ -22,8 +22,7 @@ def parse_args(args):
     """
     parser = argparse.ArgumentParser(
         prog='PROG_NAME',
-        description='Process the number of threads, the list of payloads and '
-                    'the url for the authomatic multithreading fuzzing program.'
+        description='Process the payload and the url for the authomatic multithreading fuzzing program.'
     )
 
     parser.add_argument(
@@ -32,12 +31,7 @@ def parse_args(args):
         type=str,
         required=True
     )
-    parser.add_argument(
-        "-t", "--concurrency",
-        help="number of concurrent http requests",
-        type=int,
-        required=True
-    )
+    
     parser.add_argument(
         "-l", "--filelist",
         help="input .txt file(s), containing one payload per line",
@@ -45,8 +39,8 @@ def parse_args(args):
         required=True
     )
     parser.add_argument(
-        "-d", "--data",
-        help="key-value couple (indicated: \"key={}\") staying for the parameter to be found (if POST)",
+        "-p", "--param",
+        help='key staying for the parameter to be found (for example: "email")',
         type=str,
         required=False,
     )
