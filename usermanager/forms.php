@@ -19,18 +19,18 @@
 
                     _dbgWrite('arrivato');
 
-                    $stmt = sqlsrv_query( $conn, $query);
-                    $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
+                    $stmt = mysqli_query( $conn, $query);
+                    $row = mysqli_fetch_array( $stmt, MYSQLI_ASSOC);
 
                     if( $stmt === false ) {
-                         die( print_r( sqlsrv_errors(), true));
+                         die( print_r( mysqli_errors(), true));
                     }
 
                     if(!empty($row)) {
 
-                        $stmt = sqlsrv_query( $conn, $query);
+                        $stmt = mysqli_query( $conn, $query);
 
-                        while(!empty($row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC))){
+                        while(!empty($row = mysqli_fetch_array( $stmt, MYSQLI_ASSOC))){
 
                             $_SESSION['id'] = $row['id'];
                             $_SESSION['comp_name'] = $row['comp_name'];

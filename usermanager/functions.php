@@ -15,7 +15,7 @@ function _dbgWrite($msg) {
         function connectDB(){
             $serverName = "localhost";
             $connectionInfo = array( "Database"=>"EDI", "UID"=>"sa", "PWD"=>"eD1project");
-            $conn = sqlsrv_connect( $serverName, $connectionInfo);
+            $conn = mysqli_connect($serverName, $connectionInfo['UID'], $connectionInfo['PWD'],  $connectionInfo['Database']);
             return $conn;
         }
 
@@ -25,17 +25,17 @@ function _dbgWrite($msg) {
         $conn = connectDB();
         $query = "SELECT * FROM users WHERE comp_name = '".$comp_name."'";
 
-        $stmt = sqlsrv_query( $conn, $query);
+        $stmt = mysqli_query( $conn, $query);
 
         if( $stmt === false ) {
-            die( print_r( sqlsrv_errors(), true));
+            die( print_r(  mysqli_errors(), true));
         }
-        $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC);
+        $row =  mysqli_fetch_array( $stmt, MYSQLI_ASSOC);
         if(!empty($row))
         {
-            $stmt = sqlsrv_query( $conn, $query);
+            $stmt = mysqli_query( $conn, $query);
 
-            while(!empty($row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC))){
+            while(!empty($row = mysqli_fetch_array( $stmt, MYSQLI_ASSOC))){
                 $users[] = $row;
             }
 
