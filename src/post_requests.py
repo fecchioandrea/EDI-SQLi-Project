@@ -3,29 +3,14 @@ Module useful in doing POST requests
 
 """
 
-import concurrent.futures
 import requests
 
 MY_URL = ""
-PARAM = {}
+#PARAM = {}
+PARAM = ""
 
 
-def split_data(par):
-    """
-        Splits the key and the value, in case they were indicated
-            from the user in the command-line, to be used in POSTs.
-
-        Args:
-            par       -- parameters to be split
-
-        Returns:
-            couple      -- list of two separated elements (key and value)
-
-    """
-    couple = par.split('=')
-    return [couple[0], couple[1]]
-
-
+"""
 def download_site_post(code):
     """
         Makes the POST request for every single code
@@ -40,6 +25,7 @@ def download_site_post(code):
                                             f'using code: {code}',
                                             f'giving status: {response.status_code}')
               )
+"""
 
 
 def download_all_sites_post(codes, num):
@@ -51,11 +37,12 @@ def download_all_sites_post(codes, num):
             codes       -- list of codes
 
     """
-    with concurrent.futures.ThreadPoolExecutor(max_workers=num) as executor:
-        executor.map(download_site_post, codes)  # in "map" sta il ciclo
+    for c in codes:
+        resp = requests.post(MY_URL,c)
+        print("status ", resp.status_code, " --- ", len(resp.content), " bytes --- using string: ", c, "\n")
 
 
-def make_post_requests(data, given_url, codes, num):
+def make_post_requests(param, given_url, codes):
     """
         Initialises the POST requests.
 
@@ -65,12 +52,13 @@ def make_post_requests(data, given_url, codes, num):
             codes           -- the list of codes to try
             num             -- the max number of threads to be used
     """
-    data = split_data(data)
+    #data = split_data(data)
 
     global PARAM
-    PARAM = {data[0]: data[1]}
+    #PARAM = {data[0]: data[1]}
+    PARAM = param
 
     global MY_URL
     MY_URL = given_url
 
-    download_all_sites_post(codes, num)
+    download_all_sites_post(codes)
