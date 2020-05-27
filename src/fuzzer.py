@@ -9,10 +9,9 @@ def main():
 
     """
     args = parse_args(sys.argv[1:])
-    #num_threads = args.concurrency
 
     url = args.url
-    make_post_requests(args.data, url, codes, num_threads)
+    make_post_requests(args.param, url, codes)
 
 
 if __name__ == '__main__':
