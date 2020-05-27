@@ -1,20 +1,18 @@
 """
-Main module for the fuzzer.
-
-Author: Andrea Fecchio, 2019
-Computer Engineering degree - thesis work
+Main module for the fuzzer
 
 """
 
 import sys
-import threading
+#import threading
 from parser import parse_args
-from get_requests import make_get_requests
+#from get_requests import make_get_requests
 from post_requests import make_post_requests
 
-THREAD_LOCAL = threading.local()
+#THREAD_LOCAL = threading.local()
 
 
+"""
 def build_list(files):
     """
         Build the Python list with codes to be used, starting
@@ -36,6 +34,7 @@ def build_list(files):
             codes.append(line.replace("\n", ""))
 
     return codes
+"""
 
 
 def main():
@@ -44,16 +43,16 @@ def main():
 
     """
     args = parse_args(sys.argv[1:])
-    num_threads = args.concurrency
+    #num_threads = args.concurrency
 
     url = args.url
 
-    codes = build_list(args.filelist)
-    print("\n")
+    #codes = build_list(args.filelist)
+    #print("\n")
 
-    if args.data is None:
-        make_get_requests(url, codes, num_threads)
-    else:
+    #if args.data is None:
+    #    make_get_requests(url, codes, num_threads)
+    #else:
         make_post_requests(args.data, url, codes, num_threads)
 
 
