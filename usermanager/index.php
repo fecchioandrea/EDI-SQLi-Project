@@ -1,9 +1,19 @@
 <?php
 
-    include('head.php');
-    include('functions.php');
+    
     ob_start();
     session_start();
+
+     if(isset($_SESSION['id']) && isset($_SESSION['comp_name']))
+    {
+    }
+    else
+    {
+        header('Location: login.php');
+    }
+
+    include('head.php');
+    include('functions.php');
 
     $users = getUsers($_SESSION['comp_name']);
 
