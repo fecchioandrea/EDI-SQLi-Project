@@ -3,7 +3,7 @@ from parser import parse_args
 from post_requests import make_post_requests
 
 
-def build_list(file):
+def build_list(files):
     """
         Build the Python list with the codes to be used as payloads, starting
         from one or more text file(s) (like "bypass1.txt") in which codes are listed.
@@ -15,11 +15,12 @@ def build_list(file):
             codes       -- list of codes to be used
     """
     codes = []
-    f_open = open(file, "r")
-    lines = f_open.readlines()
-    f_open.close()
-    for line in lines:
-        codes.append(line.replace("\n", ""))
+    for file in files:
+        f_open = open(file, "r")
+        lines = f_open.readlines()
+        f_open.close()
+        for line in lines:
+            codes.append(line.replace("\n", ""))
 
     return codes
 
