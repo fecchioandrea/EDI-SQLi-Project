@@ -15,8 +15,8 @@ def build_list(files):
             codes       -- list of codes to be used
     """
     codes = []
-    for file in files:
-        f_open = open(file, "r")
+    for a_file in files:
+        f_open = open(a_file, "r")
         lines = f_open.readlines()
         f_open.close()
         for line in lines:
