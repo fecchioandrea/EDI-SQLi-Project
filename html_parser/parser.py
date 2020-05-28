@@ -9,7 +9,8 @@ def htmlParser(url):
     forms_info = []
     for form in forms:
         form_info = form.attrs
-        form_info["action"] = url.replace("login.php", form_info.get("action"))
+        if form_info.get("action") is not None:
+            form_info["action"] = url.replace("login.php", form_info.get("action"))
         input_fields = form.find_all('input')
         form_info["input_fields"] = []
         for input_el in input_fields:
