@@ -9,7 +9,8 @@ def download_all_sites_post(codes):
         global PARAM
         PARAM['username'] = c
         resp = requests.post(MY_URL,PARAM)
-        print("status ", resp.status_code, " --- ", len(resp.content), " bytes --- using string: ", c, "\n")
+        print("status ", resp.status_code, " --- ", len(resp.content), " bytes --- using string: ", c, " --- RESPONSE:")
+        print(resp.content, "\n\n\n\n")
 
 
 def make_post_requests(param, url, codes):
