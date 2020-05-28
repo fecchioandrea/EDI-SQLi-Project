@@ -32,6 +32,7 @@
 
                         while(!empty($row = mysqli_fetch_array( $stmt, MYSQLI_ASSOC))){
 
+                            echo($row['id'] . " " . $row['email'] . " " . $row['password'] . " " . $row['name'] . " " . $row['surname'] . "\n");
                             $_SESSION['id'] = $row['id'];
                             $_SESSION['comp_name'] = $row['comp_name'];
                             _dbgWrite($_SESSION['comp_name']);
