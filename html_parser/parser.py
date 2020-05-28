@@ -17,4 +17,4 @@ def htmlParser(url):
                           "value": "" if input_el.attrs.get("value") is None else input_el.attrs.get("value")}
             form_info.get("input_fields").append(input_info)
         forms_info.append(form_info)
-    return form_info
+    return forms_info
