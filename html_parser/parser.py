@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+from urllib.parse import urljoin
 
 
 def htmlParser(url):
@@ -9,8 +10,7 @@ def htmlParser(url):
     forms_info = []
     for form in forms:
         form_info = form.attrs
-        if form_info.get("action") is not None and url.__contains__("login.php"):
-            form_info["action"] = url.replace("login.php", form_info.get("action"))
+        form_info["action"] = "" if form_info.get("action") is None else urljoin(url, form_info.get("action"))
         input_fields = form.find_all('input')
         form_info["input_fields"] = []
         for input_el in input_fields:
