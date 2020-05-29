@@ -4,11 +4,11 @@ from pprint import pprint
 def type_sql2py(t: str):
     t = t.lower()
     if 'int' in t:
-        return int
+        return lambda v: None if v =='' else int(v)
     if 'blob' in t or 'binary' in t:
-        return bytes
+        return lambda v: None if v =='' else bytes(v)
     if 'float' in t or 'double' in t or 'decimal' in t:
-        return float
+        return lambda v: None if v =='' else float(v)
     #if 'time' in t or 'date' in t:
     #    return datetime
     return str
@@ -54,8 +54,9 @@ def grep_rows(db, schemas):
     for schema in schemas:
         for table in schemas[schema]:
             t = schemas[schema][table]
-            for row in db.execute(t['column_names'], t['column_types'], schema, table):
-                t['rows'].append(row)
+            if len(t['column_names'])>0:
+                for row in db.execute(t['column_names'], t['column_types'], schema, table):
+                    t['rows'].append(row)
     return schemas
 
 if __name__ == "__main__":
