@@ -1,7 +1,7 @@
 import sys
 from parser import parse_args
 from post_requests import make_post_requests
-
+from html_parser import parse
 
 def build_list(files):
     """
@@ -32,7 +32,10 @@ def main():
     """
     args = parse_args(sys.argv[1:])
     codes = build_list(args.filelist)
-    make_post_requests(args.param, args.url, codes)
+    forms = parse(args.url)
+    for form in forms:
+        if form.get("method") == "post":
+            make_post_requests(args.param, form, codes)
 
 
 if __name__ == '__main__':
