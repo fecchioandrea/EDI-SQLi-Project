@@ -20,7 +20,7 @@ def download_all_sites_post(codes):
             print(resp.content, "\n\n\n\n")
 
 
-def make_post_requests(param, form, codes):
+def make_post_requests(form, codes):
     global PARAM
     PARAM = {}
     for input_field in form.get("input_fields"):
