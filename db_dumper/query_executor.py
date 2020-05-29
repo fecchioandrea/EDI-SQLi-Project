@@ -1,11 +1,5 @@
 
 class BaseQueryExecutor:
-    
-    def raw_execute(self, query):
-        """ Execute a query as it is (OPTIONAL)
-        """
-        pass
-
     def execute(self, columns, column_types, schema, table, raw_condition=None, distinct=False):
         """ Execute a query with the given definition
             columns: List[str]
@@ -30,7 +24,7 @@ class MySQLExecutor(BaseQueryExecutor):
             passwd=password
         )
 
-    def raw_execute(self, query):
+    def _raw_execute(self, query):
         cursor = self.conn.cursor()
         res = cursor.execute(query)
         return cursor.fetchall()
@@ -44,4 +38,4 @@ class MySQLExecutor(BaseQueryExecutor):
         query += ", ".join(columns)
         query += f" FROM {schema}.{table}"
         query += "" if raw_condition is None else f" WHERE {raw_condition}" 
-        return self.raw_execute(query)
+        return self._raw_execute(query)
