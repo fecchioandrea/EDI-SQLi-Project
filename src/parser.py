@@ -38,11 +38,14 @@ def parse_args(args):
         nargs='+',
         required=True
     )
+    
+    """
     parser.add_argument(
         "-p", "--param",
         help='key staying for the parameter to be found (for example: "email")',
         type=str,
         required=False,
     )
+    """
 
     return parser.parse_args(args)
