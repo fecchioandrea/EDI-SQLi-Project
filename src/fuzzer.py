@@ -35,7 +35,7 @@ def main():
     forms = parse(args.url)
     for form in forms:
         if form.get("method") == "post":
-            make_post_requests(args.param, form, codes)
+            make_post_requests(form, codes)
 
 
 if __name__ == '__main__':
