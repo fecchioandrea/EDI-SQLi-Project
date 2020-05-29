@@ -10,7 +10,7 @@ def htmlParser(url):
     forms_info = []
     for form in forms:
         form_info = form.attrs
-        form_info["action"] = "" if form_info.get("action") is None else urljoin(url, form_info.get("action"))
+        form_info["action"] = url if form_info.get("action") is None else urljoin(url, form_info.get("action"))
         input_fields = form.find_all('input')
         form_info["input_fields"] = []
         for input_el in input_fields:
