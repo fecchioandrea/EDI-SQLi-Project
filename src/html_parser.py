@@ -3,7 +3,7 @@ import requests
 from urllib.parse import urljoin
 
 
-def htmlParser(url):
+def parse(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     forms = soup.find_all("form")
