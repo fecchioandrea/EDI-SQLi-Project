@@ -4,6 +4,20 @@ db = MySQLExecutor('localhost','root','')
 
 schemas = {}
 
+
+def type_sql2py(t: str):
+    t = t.lower()
+    if 'int' in t:
+        return int
+    if 'blob' in t or 'binary' in t:
+        return bytes
+    if 'float' in t or 'double' in t or 'decimal' in t:
+        return float
+    #if 'time' in t or 'date' in t:
+    #    return datetime
+    return str
+
+
 #grep databases/tables
 for schema, table in db.execute(
                         columns=['TABLE_SCHEMA', 'TABLE_NAME'], 
@@ -26,7 +40,7 @@ for schema in schemas:
         #grep column info
         for name, _type in db.execute(
                         columns=['COLUMN_NAME', 'COLUMN_TYPE'], 
-                        column_types=[str, str],
+                        column_types=[str, type_sql2py],
                         schema="INFORMATION_SCHEMA",
                         table="COLUMNS",
                         raw_condition=f"TABLE_NAME='{table}' and TABLE_SCHEMA='{schema}'"):
