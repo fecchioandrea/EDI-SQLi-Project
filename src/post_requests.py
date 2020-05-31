@@ -18,7 +18,7 @@ def download_all_post(codes):
 
         for c in codes:
             PARAM[user_key] = c
-            resp = requests.post(MY_URL, PARAM)
+            resp = requests.post(MY_URL, PARAM, allow_redirects=False)
             resp_length = len(resp.content)
             print("status ", resp.status_code, " --- ", resp_length, " bytes --- using string: ", c,
                   " --- RESPONSE:")
