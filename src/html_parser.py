@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 
 
 def parse(url):
-    page = requests.get(url, allow_redirects=False)
+    page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     forms = soup.find_all("form")
     forms_info = []
