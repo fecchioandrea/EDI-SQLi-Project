@@ -13,7 +13,7 @@ def download_all_post(codes):
 
     if user_key is not None:
         PARAM[user_key] = "random"
-        first_try_resp = requests.post(MY_URL, PARAM)
+        first_try_resp = requests.post(MY_URL, PARAM, allow_redirects=False)
         nominal_size = len(first_try_resp.content)
 
         for c in codes:
