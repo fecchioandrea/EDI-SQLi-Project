@@ -20,7 +20,7 @@ def download_all_post(codes):
         tot = 0;
         found = 0;
         
-        start = time.clock()
+        start = time.time()
 
         for c in codes:
             PARAM[user_key] = c
@@ -35,7 +35,7 @@ def download_all_post(codes):
             else:
                 print(" - Nothing interesting... \n\n")
         
-        end = time.clock()
+        end = time.time()
         print("\n\nSTATISTICS:\t\t", found, " interesting responses over ", tot, " tried.")
         print("\t\tTotal time: ", "{0:.2f}".format(end-start), " seconds.")
 
