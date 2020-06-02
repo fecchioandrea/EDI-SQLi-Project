@@ -36,7 +36,7 @@ def download_all_post(codes):
                 print(" - Nothing interesting... \n\n")
         
         end = time.time()
-        print("\n\nSTATISTICS:\t\t", found, " interesting responses over ", tot, " tried.")
+        print("\n\nSTATISTICS:\t", found, " interesting responses over ", tot, " tried.")
         print("\t\tTotal time: ", "{0:.2f}".format(end-start), " seconds.")
 
 
