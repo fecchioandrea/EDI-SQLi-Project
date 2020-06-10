@@ -24,7 +24,7 @@
 
     </head>
     <body>
-        <h1 class="ms-bold-32">Welcome to UserManager!</h1>
+        <h1 style="font: Bold 32px Montserrat; color: #1C2759">Welcome to UserManager!</h1>
         <h2 class="ms-bold-22">Users of <?php echo $_SESSION['comp_name']?></h2>
         <table>
             <thead>
