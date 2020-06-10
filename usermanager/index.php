@@ -24,8 +24,8 @@
 
     </head>
     <body>
-        <h1>Benvenuto su UserManager!</h1>
-        <h2>Utenti di <?php echo $_SESSION['comp_name']?></h2>
+        <h1 class="ms-bold-32">Welcome to UserManager!</h1>
+        <h2 class="ms-bold-22">Users of <?php echo $_SESSION['comp_name']?></h2>
         <table>
             <thead>
                 <th>Name</th>

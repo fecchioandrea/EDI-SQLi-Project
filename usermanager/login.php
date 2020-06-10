@@ -7,7 +7,7 @@
     <div style="width: 33%; display: inline-block"></div>
     <div style="width: 33%; display: inline-block">
         <p class="logo-login"><i class="fas fa-user-friends"></i></p>
-        <h3 class="ms-bold-22" style="text-align: center">Bentornato in UserManager!</h3>
+        <h3 class="ms-bold-22" style="text-align: center">Welcome back to UserManager!</h3>
         <div class="folder block-center" style="width:70% !important;">
             <form name="login" method="post" action="forms.php">
                 <div style="width: 75%">
@@ -16,7 +16,7 @@
                     <br>
                     <label class="login">Password<input class="login" type="password" name="password"></label>
                 </div>
-                <button style="margin-top: 50px" class="block-center">Accedi</button>
+                <button style="margin-top: 50px" class="block-center">Login</button>
             </form>
         </div>
     </div>

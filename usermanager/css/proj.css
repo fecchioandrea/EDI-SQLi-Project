@@ -48,6 +48,11 @@ body {
 	color: #1C2759;
 }
 
+.ms-bold-32 {
+	font: Bold 32px Montserrat;
+	color: #1C2759;
+}
+
 .ms-error {
 	font: Bold 13px Montserrat;
 	color: #DB2C27;
